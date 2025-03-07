@@ -1,2 +1,5 @@
 # Registro de Disciplina
- Registro de Disciplina, contador de semanas de aulas e registro de conteudo letivo da aula durante a semana.
+
+---
+
+Projeto de Site que Registra Disciplinas, carga horaria e registra as aulas que seram dadas na semana representante.

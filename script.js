@@ -29,6 +29,7 @@ function clicado(botao) {
 window.onload = function() {
     const paginaAtual = window.location.pathname.split('/').pop();
 if(paginaAtual === "index.html"){
+
     $.ajax({
         url: "carregada.php",
         type: "POST",
@@ -45,3 +46,27 @@ console.log("Requisição AJAX registro concluída");
 
 }else{}
 };
+
+
+function apagarMateria(botao){
+    
+    const confirmacao = window.confirm("Voce Tem certeza que deseja excluir esta materia?")
+    if(confirmacao == true){
+
+        var id = botao.id;
+// alert(id)
+        $.ajax({
+            url: "apagarMateria.php",
+            type: "POST",
+            data: { id: id },
+         dataType: "html"
+    }).done(function(resp) {
+    $(".main").html(resp); 
+    }).fail(function(jqXHR, textStatus) {
+    alert("Falha na requisição AJAX: " + textStatus);
+    }).always(function() {
+    console.log("Requisição AJAX registro concluída");
+    });
+
+    }
+}

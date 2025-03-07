@@ -107,3 +107,21 @@ body {
       grid-template-columns: 1fr; /* 1 coluna */
     }
   }
+
+  /* Botao X do CARD */
+
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ff0000;
+}
+
+.close-button:hover {
+  color: #cc0000;
+}

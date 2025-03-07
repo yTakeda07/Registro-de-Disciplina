@@ -18,6 +18,7 @@ if ($stmt->rowCount() > 0) {
         echo "
             <div class='card'>
             <div class='info'>
+             <button class='close-button' onclick='apagarMateria(this)' id='".$row['CD_DISCIPLINA']."'>✖</button>
               <p>Codigo: " . $row['CD_DISCIPLINA'] . "</p>
               <p>Nome: " . $row['NM_DISCIPLINA'] . "</p>
               <p>Carga Anual: " . $row['QT_CARGA_ANUAL'] . "</p>
@@ -25,7 +26,7 @@ if ($stmt->rowCount() > 0) {
               <p>Avaliações por Bimestre: " . $row['NR_AVALIACAO'] . "</p>
               <p>Periodo: " . $row['TP_DISCIPLINA'] . "</p>
             </div>
-            <button class='details-button'>Ver Detalhes</button>
+            <button class='details-button' id='".$row['CD_DISCIPLINA']."'>Ver Detalhes</button>
           </div>
 
 
@@ -37,7 +38,7 @@ if ($stmt->rowCount() > 0) {
     }
     
 } else {
-    echo "Nenhum resultado encontrado.";
+    echo "Nenhuma materia .";
 }
 
  

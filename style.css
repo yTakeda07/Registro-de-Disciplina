@@ -6,6 +6,9 @@
 body {
     font-family: Arial, sans-serif;
 }
+
+/* COMEÇO DO NAV --------------------------- */
+
 .navbar {
     background: #333;
     color: white;
@@ -33,6 +36,9 @@ body {
 .navbar ul li a:hover {
     color: #f0a500;
 }
+
+/* FIM DO NAV ------------------------------ */
+
 /* Estilos gerais do layout */
 .main {
     display: grid;
@@ -108,7 +114,7 @@ body {
     }
   }
 
-  /* Botao X do CARD */
+  /* COMEÇO Botao X do CARD ------------*/
 
 
 .close-button {
@@ -125,3 +131,5 @@ body {
 .close-button:hover {
   color: #cc0000;
 }
+
+/* FIM BOTAO X DO CARD -------------------- */

@@ -54,7 +54,6 @@ function apagarMateria(botao){
     if(confirmacao == true){
 
         var id = botao.id;
-// alert(id)
         $.ajax({
             url: "apagarMateria.php",
             type: "POST",
@@ -69,4 +68,38 @@ function apagarMateria(botao){
     });
 
     }
+}
+
+
+
+function detalhesCliques(botao){
+    const id = botao.id;
+
+    $.ajax({
+        url: "informacoes.php",
+        type: "POST",
+        data: { id: id },
+     dataType: "html"
+}).done(function(resp) {
+$(".main").html(resp); 
+}).fail(function(jqXHR, textStatus) {
+alert("Falha na requisição AJAX: " + textStatus);
+}).always(function() {
+console.log("Requisição AJAX registro concluída");
+});
+    
+}
+function voltar(botao){
+    $.ajax({
+        url: "carregada.php",
+        type: "POST",
+        data: { acao: "verificar" },
+     dataType: "html"
+}).done(function(resp) {
+$(".main").html(resp); 
+}).fail(function(jqXHR, textStatus) {
+alert("Falha na requisição AJAX: " + textStatus);
+}).always(function() {
+console.log("Requisição AJAX registro concluída");
+});
 }

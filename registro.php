@@ -17,6 +17,6 @@ $inserir = "INSERT INTO TB_DISCIPLINA (NM_DISCIPLINA, QT_CARGA_ANUAL, QT_CARGA_S
 $conn->query($inserir);
   
 
-echo "tabela registrada com sucesso";
+echo "<br>tabela registrada com sucesso";
  
 ?>

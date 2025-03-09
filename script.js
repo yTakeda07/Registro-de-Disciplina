@@ -36,13 +36,14 @@ if(paginaAtual === "index.html"){
         data: { acao: "verificar" },
      dataType: "html"
 }).done(function(resp) {
-$(".main").html(resp); 
+$("main").html(resp); 
 }).fail(function(jqXHR, textStatus) {
 alert("Falha na requisição AJAX: " + textStatus);
 }).always(function() {
 console.log("Requisição AJAX registro concluída");
 });
 
+estilomain()
 
 }else{}
 };
@@ -60,12 +61,14 @@ function apagarMateria(botao){
             data: { id: id },
          dataType: "html"
     }).done(function(resp) {
-    $(".main").html(resp); 
+    $("main").html(resp); 
     }).fail(function(jqXHR, textStatus) {
     alert("Falha na requisição AJAX: " + textStatus);
     }).always(function() {
     console.log("Requisição AJAX registro concluída");
     });
+
+    estilomain()
 
     }
 }
@@ -81,13 +84,22 @@ function detalhesCliques(botao){
         data: { id: id },
      dataType: "html"
 }).done(function(resp) {
-$(".main").html(resp); 
+$("main").html(resp); 
 }).fail(function(jqXHR, textStatus) {
 alert("Falha na requisição AJAX: " + textStatus);
 }).always(function() {
 console.log("Requisição AJAX registro concluída");
 });
     
+const mainElement = document.querySelector("main");
+if (mainElement) {
+  mainElement.style.display = "";
+  mainElement.style.gridTemplateColumns = "";
+  mainElement.style.gap = "";
+  mainElement.style.margin = "";
+  mainElement.style.padding = "";
+}
+
 }
 function voltar(botao){
     $.ajax({
@@ -96,10 +108,24 @@ function voltar(botao){
         data: { acao: "verificar" },
      dataType: "html"
 }).done(function(resp) {
-$(".main").html(resp); 
+$("main").html(resp); 
 }).fail(function(jqXHR, textStatus) {
 alert("Falha na requisição AJAX: " + textStatus);
 }).always(function() {
 console.log("Requisição AJAX registro concluída");
 });
+
+estilomain()
+
+}
+
+function estilomain(){
+    const mainElement = document.querySelector("main");
+    if (mainElement) {
+      mainElement.style.display = "grid";
+      mainElement.style.gridTemplateColumns = "repeat(5, 1fr)";
+      mainElement.style.gap = "20px";
+      mainElement.style.margin = "20px";
+      mainElement.style.padding = "10px";
+    }
 }

@@ -17,16 +17,22 @@ if ($stmt->rowCount() > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         
 echo "
-<button onclick='voltar(this)'>Voltar</button>
+    <button onclick='voltar(this)' class='back-button'>
+        &#8592;
+    </button><br>
 <h1>".$row["NM_DISCIPLINA"]."</h1>
+
+
+
+
 ";
-// fim do echo que tem os cards
+// fim do echo que contem todas as informações da tela.
         
 
 
        
     }
-// fim do while
+// fim do while.
 } else {
     echo "Nenhuma materia .";
 }

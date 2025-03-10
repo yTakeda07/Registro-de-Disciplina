@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 /* COMEÇO DO NAV --------------------------- */
@@ -150,3 +150,30 @@ body {
   opacity: 0.7;
 }
 
+/* card semana começo ----------------------------------- */
+
+.card-container {
+  width: 60%; /* Ocupa 60% da largura da tela */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaçamento entre os cards */
+}
+
+.card2 {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Responsividade: ajusta o layout para telas menores */
+@media (max-width: 768px) {
+  body {
+    padding-left: 5%; /* Reduz o espaço lateral em telas pequenas */
+  }
+  .card-container {
+    width: 90%; /* Se a tela for menor, ocupa 90% da tela */
+  }
+}

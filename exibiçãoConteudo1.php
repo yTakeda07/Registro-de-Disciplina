@@ -3,13 +3,13 @@
 // Arquivo base de exibição na tela (ser usado no include)
 
 $exibir = "SELECT NM_DISCIPLINA, CD_DISCIPLINA, QT_CARGA_ANUAL,QT_CARGA_SEMANAL,NR_AVALIACAO, TP_DISCIPLINA from tb_disciplina;";
-
+    //comando sql para exibir colunas da tabela
 
 
 $stmt = $conn->query($exibir);
-
+    //prepara o exibir e o guarda no $stmt
 if ($stmt->rowCount() > 0) {
-    // Fetch and display each row
+    //se existir mais de 0 linhas na coluna, vai executar
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         
 echo "
@@ -32,15 +32,17 @@ echo "
 
 
 ";
-// fim do echo que tem os cards
-        
+        //echo que contem os cards
+
+ 
 
 
        
     }
 // fim do while
 } else {
-    echo "Nenhuma materia .";
+    echo "Nenhuma materia.";
+    //cado as linhas nao sejam maiores que 0, exibe
 }
 
 

@@ -132,7 +132,8 @@ function updatedescricao(botao){
 
     const id = botao.id; //pega o id do botao
     const classe = botao.className; //pega a classe do botao
-    const valor = document.getElementById(id).value; //pega o valor que foi colocado pelo usuario para ser atualizado
+    let valor = document.getElementsByClassName("merdadeinput")[0].value;//pega o valor que foi colocado pelo usuario para ser atualizado
+   
     $.ajax({
         url: "UpdateSemana.php",
         type: "POST",
@@ -143,12 +144,38 @@ $("main").html(resp);
 }).fail(function(jqXHR, textStatus) {
 alert("Falha na requisição AJAX: " + textStatus);
 }).always(function() {
-console.log("Requisição AJAX registro concluída");
+console.log("Requisição AJAX adicionarConteudo concluída");
 });
     //ajax para atualizar o conteudo do ds_semana
 zerarestilomain()
     //defini o main
 }
+function verconteudo(botao){
+
+    const id = botao.id; //pega o id do botao
+    const classe = botao.className; //pega a classe do botao
+    const valor = document.getElementById(id).value; //pega o valor que foi colocado pelo usuario para ser atualizado
+    $.ajax({
+        url: "verConteudo.php",
+        type: "POST",
+        data: { id: id, class: classe, valor:valor },
+     dataType: "html"
+}).done(function(resp) {
+$(".conteudosemana").html(resp); 
+    const modal = document.querySelector("dialog")
+    modal.showModal()
+}).fail(function(jqXHR, textStatus) {
+alert("Falha na requisição AJAX: " + textStatus);
+}).always(function() {
+console.log("Requisição AJAX verConteudo concluída");
+});
+    //ajax para atualizar o conteudo do ds_semana
+zerarestilomain()
+    //defini o main
+}
+
+
+
 
 function zerarestilomain(){
     const mainElement = document.querySelector("main");
@@ -161,3 +188,13 @@ if (mainElement) {
 }
 }
     //zera o estilo do main
+
+
+    
+// vou tentar fazer o modal aqui abaixo
+
+function closemodal(botao){
+    const modal = document.querySelector("dialog")
+    modal.close()
+}
+

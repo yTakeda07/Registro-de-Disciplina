@@ -17,9 +17,17 @@ if ($row) {
     <button onclick='voltar(this)' class='back-button'>
         &#8592;
     </button><br>
-    <h1>".$row["NM_DISCIPLINA"]."</h1><br><br>
-
+    <h1>".$row["NM_DISCIPLINA"]."</h1>
+    <div class='tipos'>
+    <h3>Tipos de Semana:</h3>
+    <p class='LETIVA'>letiva</p>
+    <p class='AVALIATIVA'>avaliativa</p>
+    <p class='RECUPERAÇÃO'>recuperação</p>
+    <p class='FERIADO'>feriado</p>
+    </div>
     <div class='card-container'>
+    
+    <br>
     ";
 
     // Executando a consulta para obter os dados das semanas
@@ -28,10 +36,10 @@ if ($row) {
     // Exibindo os dados de cada semana
     while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
         echo "
-        <div class='card2'>
+        <div class='card2 ".$row2["TP_SEMANA"]."'>
         CD SEMANA: ".$row2["CD_ID_SEMANA"]."
-        <input type='text' id='".$row2["CD_ID_SEMANA"]."' placeholder='Insira o conteudo'>
-        <button onclick='updatedescricao(this)' class='".$row["CD_DISCIPLINA"]."' id='".$row2["CD_ID_SEMANA"]."'>Adicionar Conteudo</button>
+
+         <button onclick='verconteudo(this)' class='".$row["CD_DISCIPLINA"]."' id='".$row2["CD_ID_SEMANA"]."'>Ver Conteudo</button>
         </div>
         
         ";

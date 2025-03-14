@@ -1,61 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cards</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input com contador</title>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
 
-body {
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: flex-start; /* Alinha os elementos à esquerda */
-  align-items: flex-start;  /* Alinha no topo da tela */
-  padding-left: 5%; /* Espaço na lateral direita */
-}
-
-.card-container {
-  width: 60%; /* Ocupa 60% da largura da tela */
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espaçamento entre os cards */
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 8px;
-}
-
-/* Responsividade: ajusta o layout para telas menores */
-@media (max-width: 768px) {
-  body {
-    padding-left: 5%; /* Reduz o espaço lateral em telas pequenas */
-  }
-  .card-container {
-    width: 90%; /* Se a tela for menor, ocupa 90% da tela */
-  }
-}
-
-
-  </style>
+        .counter {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-  <div class="card-container">
-    <!-- Aqui são 40 cards -->
-    <div class="card">Card 1</div>
 
-  </div>
+<div class="container">
+    <textarea id="textInput" maxlength="200" oninput="updateCounter()"></textarea>
+    <span class="counter" id="charCounter">200</span>
+</div>
+
+<script>
+    function updateCounter() {
+        let textInput = document.getElementById("textInput");
+        let counter = document.getElementById("charCounter");
+        let maxLength = textInput.getAttribute("maxlength");
+        counter.textContent = maxLength - textInput.value.length;
+    }
+</script>
+
 </body>
 </html>

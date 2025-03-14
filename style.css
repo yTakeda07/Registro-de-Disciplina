@@ -177,3 +177,82 @@ body {
     width: 90%; /* Se a tela for menor, ocupa 90% da tela */
   }
 }
+
+/* começo modal -------------------------- */
+
+dialog::backdrop{
+  background-color: rgr(0 0 0 / .5);
+}
+.modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+dialog{
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  background-color: azure;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px black;
+width: 80%;
+height: 80%;
+padding: 60px;
+}
+
+/* fim modal -------------------- */
+
+/* textarea -------------------------- */
+
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.LETIVA{
+  background-color: lightblue;
+}
+.AVALIATIVA{
+  background-color:coral;
+}
+.RECUPERAÇÃO{
+  background-color: chocolate;
+}
+.FERIADO{
+  background-color: goldenrod;
+}
+.tipos{
+  position: absolute;
+  right: 10%;
+  width: 10%;
+
+
+}
+.tipos p{
+  padding: 10px;
+  border-radius: 8px;
+}
+.botaobonito {
+
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover no botão */
+.botaobonito:hover {
+  background-color: #0056b3;
+}

@@ -28,10 +28,43 @@
 
         </footer>
         
+
+        
         <div class="modal">
         <dialog>
             <div class="conteudosemana"></div>
         </dialog>
     </div>
+<script>
+    function uploadArquivo(botao) {
+    const arquivo = document.getElementById('arquivo').files[0];
+    if(arquivo!=null){
+    const formData = new FormData();
+    const classes = botao.className.split(' ');
+    const CD_ID_SEMANA = classes[0];
+    const CD_DISCIPLINA = classes[1];
+    formData.append('arquivo', arquivo);
+    formData.append('CD_ID_SEMANA', CD_ID_SEMANA);
+    formData.append('CD_DISCIPLINA', CD_DISCIPLINA);
+        
+    $.ajax({
+        url: "upload.php",
+        type: "POST",
+        data: formData,
+        processData: false, // importante para FormData
+        contentType: false, // importante para FormData
+        dataType: "html"
+    }).done(function(resp) {
+        $(".conteudosemana").html(resp); 
+
+    }).fail(function(jqXHR, textStatus) {
+        alert("Falha no upload: " + textStatus);
+    }).always(function() {
+        console.log("Upload AJAX concluído");
+    });
+}else{alert("Insira um arquivo valido")}
+}
+
+</script>
 </body>
 </html>
